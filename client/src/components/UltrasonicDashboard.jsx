@@ -8,7 +8,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/get');
+        const response = await fetch('https://hard2soft.onrender.com/get');
         const data = await response.json();
 
         console.log(data);
