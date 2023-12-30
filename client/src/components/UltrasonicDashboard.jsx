@@ -3,7 +3,7 @@ import ReactGaugeMeter from 'react-gauge-meter/dist/react_gauge_meter';
 
 const Dashboard = () => {
   const [mqttData, setMqttData] = useState({});
-  const [objectDetected, setObjectDetected] = useState(false);
+  const [objectDetected, setObjectDetected] = useState('none');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +13,7 @@ const Dashboard = () => {
 
         console.log(data);
         setMqttData(data);
-        setObjectDetected(data['dataCM'] < 50); // Check if distance is less than 50
+        setObjectDetected(data['dataCM'] < 50 &&data['dataCM']!==null ?"block":"none"); // Check if distance is less than 50
       } catch (error) {
         console.error('Error fetching MQTT data:', error);
       }
@@ -34,7 +34,7 @@ const Dashboard = () => {
       }} >--RC Balaji</h3>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div>
-        {objectDetected && (
+       
             <div
               style={{
                 marginTop: '10px',
@@ -44,12 +44,13 @@ const Dashboard = () => {
                 textAlign: 'center',
                 fontWeight: 'bold',
                 fontSize: '16px',
-                color:'black'
+                color:'black',
+                display:objectDetected
               }}
             >
               Object Detected!
             </div>
-          )}
+          
           <h2 style={{textAlign:'center'}} >Distance (cm) : {mqttData['dataCM']}</h2>
           <ReactGaugeMeter
             firstColor="#FF0000"

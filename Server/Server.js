@@ -5,8 +5,8 @@ const port = process.env.PORT ||  3000;
 const cors = require('cors')
 
 var data = {
-  dataCM:'',
-  dataInch:''
+  dataCM:null,
+  dataInch:null
 }
 
 app.use(cors())
