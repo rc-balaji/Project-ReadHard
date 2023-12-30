@@ -25,8 +25,13 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>Dashboard</h1>
+    <div style={{alignItems:'center'}} >
+      <h1 style={{
+        marginLeft:'100px'
+      }}>Dashboard</h1>
+      <h3 style={{
+        marginLeft:'300px'
+      }} >--RC Balaji</h3>
       <div style={{ display: 'flex', justifyContent: 'space-around' }}>
         <div>
         {objectDetected && (
